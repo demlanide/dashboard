@@ -12,9 +12,11 @@ class MainController extends Controller
         $configs = new Config();
         $json = $configs->all()[0]->json;
         $config = json_decode($json, true);
-        if ($config['status'] == 'enabled')
+        if ($config['status'] == 'enabled') {
             return view('instance', ['config'=>$config]);
-        else
+        }
+        else {
             return view('blocked');
+        }
     }
 }
